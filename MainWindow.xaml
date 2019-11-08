@@ -1,0 +1,346 @@
+﻿<Window x:Class="BankApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>-->
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Content="  Новый клиент  " Click="AddClient"/>
+
+            <!--<Button Content="Расчитать кредит"
+                    Grid.Column="1"></Button>
+            <Button Grid.Column="2"
+                    Content="Открыть вклад"></Button>-->
+            
+            <Button Grid.Column="6"
+                    Name="History"
+                    Click="History_Click"
+                    Content="  История действий  "/>
+            <Button Grid.Column="4"
+                    Content="Удалить клиента"
+                    Name="Delete"
+                    Click="Delete_Click"
+                   Grid.ColumnSpan="2" />
+
+        </Grid>
+
+        <Grid  Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            
+           <!--отображение даных клиента-->
+            <Grid Grid.Column="0">
+
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Padding="5"
+                       Grid.Column="0"
+                       Content="Имя"
+                       Grid.Row="0"
+                       Name="L_name"></Label>
+                <Label Padding="5"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Name="L_lname"
+                       Content="Фамилия"></Label>
+                <Label Padding="5" 
+                       Content="Дата рождения"
+                       Grid.Column="0"
+                       Name="L_create"
+                       Grid.Row="2"></Label>
+                <Label Padding="5"
+                       Name="L_pass"
+                       Content="Номер Паспорта"
+                           Grid.Column="0"
+                       Grid.Row="3"></Label>
+                <Label Padding="5"
+                       Grid.Row="4"
+                       Name="L_adres"
+                       Content="Адрес"
+                           Grid.Column="0"></Label>
+                <Label Padding="5"
+                       Grid.Row="5"
+                       Name="L_finance"
+                       Content="Сумма средств"
+                           Grid.Column="0"></Label>
+                <Label Padding="5"
+                       Grid.Row="6"
+                       Name="L_acc"
+                       Content="Счета"
+                           Grid.Column="0"></Label>
+                <Label Padding="5"
+                       Grid.Row="7"
+                       Content="Кредитный рейтинг"
+                           Grid.Column="0"></Label>
+                <Label Padding="5"
+                       Grid.Row="8"
+                       Content="Вклады"
+                           Grid.Column="0"></Label>
+                <Label Padding="5"
+                       Grid.Row="9"
+                       Grid.Column="0"
+                       Name="L_work"
+                       Content="Место Работы"></Label>
+
+
+
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="1"
+                           Name="FstName" 
+                           ></TextBlock>
+
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Name="LstName"
+                            
+                           ></TextBlock>
+
+                <TextBlock Grid.Row="2"
+                        Grid.Column="1"
+                           Name="BrthDay"
+                           ></TextBlock>
+
+                <TextBlock Grid.Row="3"
+                          Grid.Column="1"
+                           Name="NumPassport"
+                          ></TextBlock>
+
+                <TextBlock Grid.Row="4"
+                           Grid.Column="1"
+                           Name="Adres"
+                          
+                           ></TextBlock>
+
+                <TextBlock Grid.Row="5"
+                           Grid.Column="1"
+                           Name="AllCash"
+                         ></TextBlock>
+
+                <Grid Grid.Row="6"
+                           Grid.Column="1" 
+                            >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="Tb_UserCash" 
+                               Grid.Column="0"
+                               Text="" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <Button  Name="Bt_CashAcc"
+                             Click="Bt_CashAcc_Click"
+                             Grid.Column="1"
+                             Content="Просмотреть" />
+                </Grid>
+
+                <Grid Grid.Row="7"
+                           Grid.Column="1">
+
+                    <TextBlock Name="Tb_rating"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"></TextBlock>
+
+                </Grid>
+
+                <Grid Grid.Row="8"
+                           Grid.Column="1"
+                        
+                           >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="Tb_UserDeposit" 
+                               Grid.Column="0"
+                               Text="" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <!--<Button  Name="Bt_deposit"
+                             Grid.Column="1"
+                             Content="Открыть" />-->
+                </Grid>
+
+
+                <TextBlock Grid.Row="9"
+                               Grid.Column="1"
+                           Name="Tbk_Work"
+                           ></TextBlock>
+                    <Button 
+                             Grid.Row="10"
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="2"
+                        Content="Удалить"></Button>
+                    
+                
+                
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TabControl Name="TC_Bank_office" SelectionChanged="TC_Bank_office_SelectionChanged">
+                    <!--"-->
+                    <TabItem Name="TI_All_Clients" >
+                        <TabItem.Header>
+                            <TextBlock Text="Обычные клинты"></TextBlock>
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <ListView IsSynchronizedWithCurrentItem="True" 
+                                      Name="LV_Standart" 
+                                       GotFocus="LV_Standart_GotFocus">
+                                <ListView.View>
+                                    <GridView >
+                                        <GridViewColumn DisplayMemberBinding="{Binding LstName}">
+                                            <TextBlock
+                                                Text="Клиент"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Passport}">
+                                            <TextBlock
+                                                Text="Паспорт"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Finance}">
+                                            <TextBlock
+                                                Text="Всего средств"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Credit}">
+                                            <TextBlock
+                                                Text="Кредиты"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Deposits}">
+                                            <TextBlock
+                                                Text="Вклады" ></TextBlock>
+                                        </GridViewColumn>
+                                    </GridView>
+
+                                </ListView.View>
+                            </ListView>
+                        </TabItem.Content>
+                    </TabItem>
+                    <!--"-->
+                    <TabItem Name="TI_VIP_Clients" >
+                        <TabItem.Header>
+                            <TextBlock Text="VIP клиенты"></TextBlock>
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <ListView IsSynchronizedWithCurrentItem="True"
+                                      Name="LV_VIP_Clients" GotFocus="LV_VIP_Clients_GotFocus">
+                                <ListView.View>
+                                    <GridView >
+                                        <GridViewColumn DisplayMemberBinding="{Binding LstName}">
+                                            <TextBlock
+                                                Text="Клиент"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Passport}">
+                                            <TextBlock
+                                                Text="Паспорт"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Finance}">
+                                            <TextBlock
+                                                Text="Всего средств"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Credit}">
+                                            <TextBlock
+                                                Text="Кредиты"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Deposits}">
+                                            <TextBlock
+                                                Text="Вклады" ></TextBlock>
+                                        </GridViewColumn>
+                                    </GridView>
+
+                                </ListView.View>
+                            </ListView>
+                        </TabItem.Content>
+                    </TabItem>
+                    <!--"-->
+                    <TabItem Name="TI_Company_Clients" >
+                        <TabItem.Header>
+                            <TextBlock Text="Юридические лица"></TextBlock>
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <ListView IsSynchronizedWithCurrentItem="True"
+                                      Name="LV_Comp_Clients"
+                                      GotFocus="VL_Comp_Clients_GotFocus">
+                                <ListView.View>
+                                    <GridView >
+                                        <GridViewColumn DisplayMemberBinding="{Binding LstName}">
+                                            <TextBlock
+                                                Text="Компания"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Inn}">
+                                            <TextBlock
+                                                Text="ИНН"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Finance}">
+                                            <TextBlock
+                                                Text="Всего средств"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Credit}">
+                                            <TextBlock
+                                                Text="Кредиты"></TextBlock>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Deposits}">
+                                            <TextBlock
+                                                Text="Вклады" ></TextBlock>
+                                        </GridViewColumn>
+                                    </GridView>
+
+                                </ListView.View>
+                            </ListView>
+                        </TabItem.Content>
+                    </TabItem>
+                </TabControl>
+                
+            </Grid>
+
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>

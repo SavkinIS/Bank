@@ -1,0 +1,29 @@
+﻿<Window x:Class="BankApp.Logi_Win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApp"
+        mc:Ignorable="d"
+        Title="Logi_Win" Height="450" Width="800">
+    
+    <Grid>
+        <ListView Name="LV_Logs" >
+            <ListView.View> 
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Time_process}"
+                                     Width="300">
+                        <TextBlock>Время</TextBlock>
+                    </GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Process}"
+                                     Width="500">
+                        <TextBlock>Действие</TextBlock>
+                    </GridViewColumn>
+                   
+                     
+                </GridView>
+                
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

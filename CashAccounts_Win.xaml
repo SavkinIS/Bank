@@ -1,0 +1,86 @@
+﻿<Window x:Class="BankApp.CashAccounts_Win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApp"
+        mc:Ignorable="d"
+        Title="CashAccounts_Win" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    Margin="5"
+                    Name="NewCashAcc"
+                    Click="NewCashAcc_Click"
+                    Content="Открыть новый счет"></Button>
+            
+            
+            
+            <Button Margin="5"
+                    Grid.Column="1"
+                    Name="Bn_Credit"
+                    Click="Bn_Credit_Click"
+                    Content="Расчитать кредит"></Button>
+            
+            <Button Margin="5"
+                     Grid.Column="2"
+                    Name="Bn_Deposit"
+                    Content="Открыть вклад"
+                    Click="Bn_Deposit_Click"></Button>
+            <Button Margin="5"
+                     Grid.Column="3"
+                    Name="Bn_transfer"
+                    Content="Перевод между счетами"
+                    Click="Bn_transfer_Click"></Button>
+            
+            <Button Margin="5"
+                     Grid.Column="4"
+                    Name="Bn_transferToUser"
+                    Content="Перевод клиенту"
+                    Click="Bn_transferToUser_Click">
+            </Button>
+            <Button Margin="5"
+                     Grid.Column="5"
+                    Name="Bn_Delete"
+                    Content="Удалить счёт"
+                    Click="Bn_Delete_Click"></Button>
+        </Grid>
+
+
+        <TextBlock Grid.Row="1" x:Name="TxClientName" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF1DB41F" FontWeight="Bold" Text="Имя компаании" FontSize="20"/>
+
+        <ListView Grid.Row="2" Name="Lv_cashAcc" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding IdCashAcc}">
+                        <TextBlock>Номер счета</TextBlock>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Type}">
+                        <TextBlock>Тип</TextBlock>
+                    </GridViewColumn>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding Acc_finance}">
+                        <TextBlock>Баланс</TextBlock>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+       
+    </Grid>
+</Window>
